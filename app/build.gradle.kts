@@ -51,7 +51,27 @@ android {
     composeOptions { kotlinCompilerExtensionVersion = "1.5.1" }
     packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
 
-    testOptions { unitTests { isIncludeAndroidResources = true } }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            all {
+                it.systemProperty("robolectric.offline", "true")
+                it.systemProperty(
+                    "robolectric.dependency.dir",
+                    "${rootDir}/robolectric-jars/preinstrumented"
+                )
+            }
+        }
+    }
+}
+
+// Increase heap size for tests as unit test will consume large memories
+// when running multiple targets tests with Robolectric as it will load
+// multiple android-all jars into memory.
+tasks.withType<Test> {
+    minHeapSize = "512m"
+    maxHeapSize = "4096m"
+    jvmArgs = listOf("-XX:MaxPermSize=512m")
 }
 
 dependencies {

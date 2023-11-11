@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "RobolectricOfflineSample"
 include(":app")
+include (":robolectric-jars")
  
