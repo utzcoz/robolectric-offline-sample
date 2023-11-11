@@ -25,6 +25,10 @@ jobs:
         run: |
           ./gradlew downloadAllRobolectricJars
 
+      - name: Check formatting
+        run: |
+          ./gradlew spotlessCheck
+
       - name: Build
         run: |
           ./gradlew build
