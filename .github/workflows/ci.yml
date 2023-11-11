@@ -1,0 +1,38 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
+      - uses: gradle/gradle-build-action@v2
+
+      - name: Update dependencies
+        run: |
+          ./gradlew downloadAllRobolectricJars
+
+      - name: Check formatting
+        run: |
+          ./gradlew spotlessCheck
+
+      - name: Build
+        run: |
+          ./gradlew build
+
+      - name: Test
+        run: |
+          ./gradlew test
