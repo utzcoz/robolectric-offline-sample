@@ -71,7 +71,6 @@ android {
 tasks.withType<Test> {
     minHeapSize = "512m"
     maxHeapSize = "4096m"
-    jvmArgs = listOf("-XX:MaxPermSize=512m")
 }
 
 dependencies {
