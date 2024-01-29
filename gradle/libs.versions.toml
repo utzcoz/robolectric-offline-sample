@@ -8,7 +8,7 @@ espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.7.0"
 composeBom = "2023.10.01"
-spotless = "6.24.0"
+spotless = "6.25.0"
 robolectric = "4.11.1"
 
 [libraries]
