@@ -19,7 +19,7 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - uses: gradle/gradle-build-action@v3.4.2
+      - uses: gradle/gradle-build-action@v3.5.0
 
       - name: Update dependencies
         run: |
