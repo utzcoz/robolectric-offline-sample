@@ -21,7 +21,7 @@ spotless {
 
 android {
     namespace = "me.utzcoz.robolectric.offline.sample"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "me.utzcoz.robolectric.offline.sample"
