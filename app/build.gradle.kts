@@ -47,7 +47,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -59,7 +59,7 @@ android {
                 it.systemProperty("robolectric.offline", "true")
                 it.systemProperty(
                     "robolectric.dependency.dir",
-                    "${rootDir}/robolectric-jars/preinstrumented"
+                    "${rootDir}/robolectric-jars/preinstrumented",
                 )
             }
         }
